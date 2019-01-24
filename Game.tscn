@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://Player.png" type="Texture" id=3]
+[ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 [node name="Grid" type="TileMap" parent="." index="0"]
 
@@ -43,5 +44,9 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Grid/Player" index="0"]
 
 texture = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D" parent="Grid" index="1"]
+
+script = ExtResource( 4 )
 
 
