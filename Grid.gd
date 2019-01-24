@@ -29,8 +29,39 @@ func _ready():
 		add_child(new_obstacle)
 	pass
 	
-func is_cell_vacant():
+func is_cell_vacant(pos, direction):
+	var grid_pos = world_to_map(pos) + direction
+	
+	if grid_pos.x < grid_size.x and grid_pos.x >= 0:
+		if grid_pos.y < grid_size.y and grid_pos.y >= 0:
+			if grid[grid_pos.x][grid_pos.y] == null:
+				return true
+			else:
+				return false
+	return false		
+	
 	pass
 	
-func update_child_pos(child, new_pos, direction):
-	pass
+func update_child_pos(child_node):
+	var grid_pos = world_to_map(child_node.position)
+	print(grid_pos)
+	grid[grid_pos.x][grid_pos.y] = null
+	var new_grid_pos = grid_pos + child_node.direction
+	grid[new_grid_pos.x][new_grid_pos.y] = child_node.type
+	var target_pos = map_to_world(new_grid_pos) + half_tile_size
+	return target_pos
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
